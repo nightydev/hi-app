@@ -1,0 +1,13 @@
+#chat-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+  background-color: #4a5568; /* Color del "thumb" (barra deslizadora) */
+  border-radius: 5px;
+}
+
+#chat-container::-webkit-scrollbar-track {
+  background-color: #2d3748; /* Color del fondo del scrollbar */
+  border-radius: 5px;
+}
