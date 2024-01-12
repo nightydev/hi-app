@@ -16,7 +16,7 @@ export default function App() {
     };
     setMessages([...messages, newMessage]);
     socket.emit('message', message);
-    setMessage(''); // Limpiar el input después de enviar el mensaje
+    setMessage('');
   };
 
   useEffect(() => {
@@ -25,10 +25,9 @@ export default function App() {
     return () => {
       socket.off('message', receiveMessage);
     };
-  }, [messages]); // Asegúrate de incluir 'messages' en la dependencia del useEffect
+  }, [messages]);
 
   useEffect(() => {
-    // Desplazar automáticamente el scroll hacia abajo al recibir un nuevo mensaje
     const chatContainer = document.getElementById('chat-container');
     if (chatContainer) {
       chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -38,9 +37,10 @@ export default function App() {
   const receiveMessage = (message) => setMessages((state) => [...state, message]);
 
   return (
-    <div className='h-screen bg-zinc-800 text-white flex flex-col items-center justify-center'>
-      <h2 className='text-2xl mb-4'>¡Bienvenido, {username}!</h2>
-      <form onSubmit={handleSubmit} className='bg-zinc-900 p-6 rounded-lg w-96'>
+    <div className='min-h-screen bg-zinc-800 text-white flex flex-col items-center justify-center'>
+      <h1 className="text-6xl font-extrabold mb-8">Hi!</h1>
+      <h2 className='text-2xl mb-4'>Empieza a chatear {username}</h2>
+      <form onSubmit={handleSubmit} className='bg-zinc-900 p-6 rounded-lg w-full max-w-md responsive-form'>
         <ul id='chat-container' className='max-h-60 overflow-y-auto pr-4'>
           {messages.map((message, i) => (
             <li
@@ -58,7 +58,7 @@ export default function App() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className='border-2 border-zinc-500 p-2 w-full text-black mt-4 mr-2'
-        ></input>
+        />
       </form>
     </div>
   );

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon backend/index.js --ignore frontend"
   },
-  "author": "Nighty",
+  "author": "Nighty/Luxtar",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
