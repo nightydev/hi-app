@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './App.css';
-import socket from './socket.js';
+import socket from '../services/socket.js';
 
 export default function App() {
   const { username } = useParams();

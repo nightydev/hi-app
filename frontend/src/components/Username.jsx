@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import socket from './socket.js';
+import socket from '../services/socket.js';
 
 export default function Username() {
   const [username, setUsername] = useState('');
